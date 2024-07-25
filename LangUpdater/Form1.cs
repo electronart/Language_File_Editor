@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,14 @@ namespace LangUpdater
             tableLayoutPanel1.RowStyles.Clear();
             tableLayoutPanel1.AutoScroll = true;
             groupBoxLang.Enabled = false;
+            compareToolStripMenuItem.Enabled = false;
+           
         }
 
-        private void buttonLoadFile_Click(object sender, EventArgs e)
+        int stringsToTranslate = 0;
+
+        //private void buttonLoadFile_Click(object sender, EventArgs e)
+        private void OpenFile()
         {
             try
             {
@@ -42,8 +48,9 @@ namespace LangUpdater
                 var lang = Lang.LoadFromFile(file);
                 groupBoxLang.Text = ofd.FileName;
                 PopulateTableFromLang(lang);
-
-
+                compareToolStripMenuItem.Enabled = true;
+                //select first item to be translated
+                GenerateCountOfNonTranslated(true);
 
 
             } catch (Exception ex)
@@ -53,6 +60,7 @@ namespace LangUpdater
             }
         }
 
+        
         private void PopulateTableFromLang(Lang lang)
         {
             tableLayoutPanel1.RowCount = 0;
@@ -72,7 +80,7 @@ namespace LangUpdater
 
             tableLayoutPanel1.SuspendLayout();
 
-            int row = 0;
+            int row = 1;
             int totalStrings = 0;
 
 
@@ -128,7 +136,9 @@ namespace LangUpdater
             tableLayoutPanel1.Padding = new Padding(0, 0, vertScrollWidth, 0);
             #endregion
 
-            labelTotalStrings.Text = totalStrings.ToString() + " strings total.";   
+           //labelTotalStrings.Text = totalStrings.ToString() + " strings total.";   
+            toolStripStatusLabel1.Text = "Total strings: " + totalStrings.ToString();
+            stringsToTranslate = totalStrings;
 
             tableLayoutPanel1.RowCount = row;
             tableLayoutPanel1.ResumeLayout(true);
@@ -136,6 +146,8 @@ namespace LangUpdater
 
             groupBoxLang.Enabled = true;
             GenerateCountOfNonTranslated();
+
+            
         }
 
         private void TranslationTextBox_TextChanged(object sender, EventArgs e)
@@ -171,6 +183,12 @@ namespace LangUpdater
                     // Original string.
                     string original = label.Text;
                     string translation = tableLayoutPanel1.Controls[i + 1].Text;
+                    //added 24 July 2024 Tom says needed for DBi template file
+                    if (translation.Trim() == "TRANSLATE")
+                    {
+                        if (focusFirst) { tableLayoutPanel1.Controls[i + 1].Focus(); return; }
+                        ++totalNotTranslated;
+                    }
                     /*
                     if (original == translation)
                     {
@@ -184,7 +202,8 @@ namespace LangUpdater
                         ++totalNotTranslated;
                         
                     }
-                    else if (translation == original.PseudoLocalize())
+                   // else if (translation == original.PseudoLocalize())
+                   else if (translation.Trim().Contains('['))
                     {
                         if (focusFirst) { tableLayoutPanel1.Controls[i + 1].Focus(); return; }
                         ++totalNotTranslated;
@@ -194,21 +213,37 @@ namespace LangUpdater
                 }
                 ++i;
             }
-            labelNumNotTranslated.Text = "Not Translated: " + totalNotTranslated;
+          
+            //As at 16 July 2024 there are 207 rows to translate Including the RFC4646 row.
+            //labelNumNotTranslated.Text = "Not Translated: " + totalNotTranslated;
+            //prefer to also show % done
+            toolStripStatusLabel2.Text = "Not Translated: " + totalNotTranslated;
+            var percent = ((((double)stringsToTranslate - totalNotTranslated) /(double)stringsToTranslate)) *100;
+            toolStripStatusLabel3.Text = "Translated: " + percent.ToString("F2") + " % " ;
         }
 
-        private void buttonUpdateFromTemplate_Click(object sender, EventArgs e)
+        //private void buttonUpdateFromTemplate_Click(object sender, EventArgs e)
+        private void CompareWithTemplate()
         {
-            OpenFileDialog ofd = new OpenFileDialog();
+           /* OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Language Files|*.lang";
             ofd.Multiselect = false;
             ofd.Title = "Select Template Lang File (template.lang)";
             var dialogResult = ofd.ShowDialog();
-            if (dialogResult != DialogResult.OK) return;
+            if (dialogResult != DialogResult.OK) return;*/
+
             try
             {
-                var file = ofd.FileName;
-                var templateLang = Lang.LoadFromFile(file);
+
+                //get template.lang file from same path as file being edited
+                //assumption is that a new install always has a new template.lang file but leaves other lang files as-is.
+
+               //var file = ofd.FileName;
+                var path =  groupBoxLang.Text;
+                string file = Path.GetFileName(path);
+                string templateFile= path.Replace(file, "template.lang");
+            
+                var templateLang = Lang.LoadFromFile(templateFile);
                 var editingLang  = GetLangFromTable();
 
                 editingLang.GetUpdatedLangFromTemplate(templateLang, out Lang updatedLang, out List<string> newStrings, out List<string> removedStrings);
@@ -219,6 +254,8 @@ namespace LangUpdater
                 if (res == DialogResult.OK)
                 {
                     PopulateTableFromLang(updatedLang);
+                    //save to file next??
+
                 }
 
             } catch (Exception ex)
@@ -253,12 +290,22 @@ namespace LangUpdater
             return lang;
         }
 
+        //TODO
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                buttonNextNotTranslated.PerformClick();//NOGO???
+            }
+        }
+
         private void buttonNextNotTranslated_Click(object sender, EventArgs e)
         {
             GenerateCountOfNonTranslated(true);
         }
 
-        private void buttonSaveFile_Click(object sender, EventArgs e)
+       // private void buttonSaveFile_Click(object sender, EventArgs e)
+        private void SaveFile()
         {
             try
             {
@@ -291,6 +338,73 @@ namespace LangUpdater
             {
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFile();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFile();
+        }
+
+        private void compareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CompareWithTemplate();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void labelNumNotTranslated_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void characterMapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("charmap.exe");
+            }
+            catch (System.ComponentModel.Win32Exception )
+            {
+                //handle exception
+                throw;
+            }
+
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAbout about = new FormAbout();
+            about.ShowDialog();
+        }
+
+        private void onlineUserGuideToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://searchcloudone.com/lfe-user-guide/LFE_User_Guide");
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Application.MessageLoop == true)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                Environment.Exit(1);
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

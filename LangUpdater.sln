@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LangUpdater", "LangUpdater\LangUpdater.csproj", "{76CE4C55-014A-41B9-954D-2DEDC6A045E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageFileEditor", "LangUpdater\LanguageFileEditor.csproj", "{76CE4C55-014A-41B9-954D-2DEDC6A045E6}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Language-File-Editor-Setup", "Language-File-Editor-Setup\Language-File-Editor-Setup.vdproj", "{1C273433-CBD3-469A-832C-54AF6C5F28CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{76CE4C55-014A-41B9-954D-2DEDC6A045E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76CE4C55-014A-41B9-954D-2DEDC6A045E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76CE4C55-014A-41B9-954D-2DEDC6A045E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C273433-CBD3-469A-832C-54AF6C5F28CD}.Debug|Any CPU.ActiveCfg = Debug
+		{1C273433-CBD3-469A-832C-54AF6C5F28CD}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

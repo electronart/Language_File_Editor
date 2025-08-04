@@ -116,6 +116,7 @@ namespace LangUpdater
                     originalTextLabel.Text = translationItem.Original;
                     originalTextLabel.Margin = new Padding(8);
                     originalTextLabel.Width = 220;
+                    originalTextLabel.Click += OriginalTextLabel_Click;
                     tableLayoutPanel1.Controls.Add(originalTextLabel, 0, row);
 
                     TextBox translationTextBox = new TextBox();
@@ -150,6 +151,14 @@ namespace LangUpdater
             
         }
 
+        private void OriginalTextLabel_Click(object sender, EventArgs e)
+        {
+            if (sender is Label label)
+            {
+                Clipboard.SetText(label.Text);
+            }
+        }
+
         private void TranslationTextBox_TextChanged(object sender, EventArgs e)
         {
             GenerateCountOfNonTranslated();
@@ -162,7 +171,16 @@ namespace LangUpdater
 
         private void TranslationTextBox_GotFocus(object sender, EventArgs e)
         {
-            GenerateCountOfNonTranslated();
+            if (sender is TextBox textBox)
+            {
+                textBox.SelectAll();
+                if (tableLayoutPanel1.Controls[tableLayoutPanel1.Controls.IndexOf(textBox) -1] is Label label)
+                {
+                    Clipboard.SetText(label.Text);
+                }
+                GenerateCountOfNonTranslated();
+            }
+            
         }
 
         private void GenerateCountOfNonTranslated(bool focusFirst = false)
@@ -186,7 +204,7 @@ namespace LangUpdater
                     //added 24 July 2024 Tom says needed for DBi template file
                     if (translation.Trim() == "TRANSLATE")
                     {
-                        if (focusFirst) { tableLayoutPanel1.Controls[i + 1].Focus(); return; }
+                        if (focusFirst) { Clipboard.SetText(original); tableLayoutPanel1.Controls[i + 1].Focus(); return; }
                         ++totalNotTranslated;
                     }
                     /*
@@ -198,14 +216,14 @@ namespace LangUpdater
                     */
                     if (translation.Trim() == "")
                     {
-                        if (focusFirst) { tableLayoutPanel1.Controls[i + 1].Focus(); return; }
+                        if (focusFirst) { Clipboard.SetText(original); tableLayoutPanel1.Controls[i + 1].Focus(); return; }
                         ++totalNotTranslated;
                         
                     }
                    // else if (translation == original.PseudoLocalize())
                    else if (translation.Trim().Contains('['))
                     {
-                        if (focusFirst) { tableLayoutPanel1.Controls[i + 1].Focus(); return; }
+                        if (focusFirst) { Clipboard.SetText(original); tableLayoutPanel1.Controls[i + 1].Focus(); return; }
                         ++totalNotTranslated;
                     }
 

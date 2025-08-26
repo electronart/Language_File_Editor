@@ -7,6 +7,7 @@ using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+//using System.Reflection.Emit;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,11 @@ namespace LangUpdater
 
         int stringsToTranslate = 0;
 
-        //private void buttonLoadFile_Click(object sender, EventArgs e)
+        private void label_Click(object sender, EventArgs e)
+        {
+            label1.Focus();
+        }
+
         private void OpenFile()
         {
             try
@@ -201,7 +206,7 @@ namespace LangUpdater
                     // Original string.
                     string original = label.Text;
                     string translation = tableLayoutPanel1.Controls[i + 1].Text;
-                    //added 24 July 2024 Tom says needed for DBi template file
+                    //added 24 July 2024 needed for DBi template file
                     if (translation.Trim() == "TRANSLATE")
                     {
                         if (focusFirst) { Clipboard.SetText(original); tableLayoutPanel1.Controls[i + 1].Focus(); return; }
@@ -231,11 +236,9 @@ namespace LangUpdater
                 }
                 ++i;
             }
-          
-            //As at 16 July 2024 there are 207 rows to translate Including the RFC4646 row.
-            //labelNumNotTranslated.Text = "Not Translated: " + totalNotTranslated;
-            //prefer to also show % done
-            toolStripStatusLabel2.Text = "Not Translated: " + totalNotTranslated;
+           
+            //16 July 2024 also show % done
+            //toolStripStatusLabel2.Text = "Not Translated: " + totalNotTranslated;
             var percent = ((((double)stringsToTranslate - totalNotTranslated) /(double)stringsToTranslate)) *100;
             toolStripStatusLabel3.Text = "Translated: " + percent.ToString("F2") + " % " ;
         }
@@ -287,6 +290,7 @@ namespace LangUpdater
             Lang lang = new Lang();
             int totalControls = tableLayoutPanel1.Controls.Count;
             int i = 2; // Skip the headers.
+           // Clipboard.SetText("hello " + label.Text + " " + translation);
             while (i < totalControls)
             {
                 var control = tableLayoutPanel1.Controls[i];
@@ -301,6 +305,7 @@ namespace LangUpdater
                     string original = label.Text;
                     string translation = tableLayoutPanel1.Controls[i + 1].Text;
                     lang.LangItems.Add(new TranslationItem(original, translation));
+                   // Clipboard.SetText("hello " + label.Text + " " + translation); gets last string 'No word wrap'
                     ++i;
                 }
                 ++i;
@@ -322,7 +327,7 @@ namespace LangUpdater
             GenerateCountOfNonTranslated(true);
         }
 
-       // private void buttonSaveFile_Click(object sender, EventArgs e)
+       
         private void SaveFile()
         {
             try

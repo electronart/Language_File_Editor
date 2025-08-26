@@ -599,7 +599,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Language-File-Editor"
         "ProductCode" = "8:{7914CE0A-6F5D-45FA-BE83-7FF009B8E3D9}"
-        "PackageCode" = "8:{C27F3B79-677C-4598-B710-2D31332D3074}"
+        "PackageCode" = "8:{86BDE9EC-902D-447F-816F-3608B593A026}"
         "UpgradeCode" = "8:{13E77728-D603-4092-A899-24642756BA39}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
@@ -622,7 +622,7 @@
         "UseSystemSearchPath" = "11:TRUE"
         "TargetPlatform" = "3:1"
         "PreBuildEvent" = "8:"
-        "PostBuildEvent" = "8:"
+        "PostBuildEvent" = "8:\"C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.22000.0\\x64\\signtool.exe\" sign /a /d \"Language-File-Editor-Setup\" /n \"ELECTRONART DESIGN LIMITED\" /fd SHA256 /tr http://rfc3161timestamp.globalsign.com/advanced /td SHA256 \"$(BuiltOuputPath)\""
         "RunPostBuildEvent" = "3:0"
         }
         "Registry"
@@ -723,7 +723,7 @@
             {
             "Name" = "8:LFE"
             "Arguments" = "8:"
-            "Description" = "8:"
+            "Description" = "8:Language File Editor"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"

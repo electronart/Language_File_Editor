@@ -176,7 +176,7 @@ namespace LangUpdater
                 textBox.SelectAll();
                 if (tableLayoutPanel1.Controls[tableLayoutPanel1.Controls.IndexOf(textBox) -1] is Label label)
                 {
-                    Clipboard.SetText(label.Text);
+                    //Clipboard.SetText(label.Text);
                 }
                 GenerateCountOfNonTranslated();
             }

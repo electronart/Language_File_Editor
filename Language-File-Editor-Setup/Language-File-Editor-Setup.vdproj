@@ -15,7 +15,7 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_03D4892802423210B220FD24F87B109F"
+        "MsmKey" = "8:_0720D0C54A7B3AAB8B1AB26DAEE0CD60"
         "OwnerKey" = "8:_1ECE85A7A132495E94FB055047A24BF6"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -45,7 +45,25 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_853C8BD0223248CA872FFE07B2EC3E38"
+        "MsmKey" = "8:_516F71D4BFAB40658F4733FED2B7DA79"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9B76E34684B246138BD698E07A4A7594"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A36EDDEDBCAD4BA0BB1F37D061FBD632"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B1D3BE9474054BF690B7ECF7209D1C23"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -57,12 +75,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_CDB2B7DDB02E45C1929A6BDDBCBEC3E7"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_D8464F2BA3E9DDB925D9A8D4A4624D98"
         "OwnerKey" = "8:_1ECE85A7A132495E94FB055047A24BF6"
         "MsmSig" = "8:_UNDEFINED"
@@ -70,19 +82,7 @@
         "Entry"
         {
         "MsmKey" = "8:_D8464F2BA3E9DDB925D9A8D4A4624D98"
-        "OwnerKey" = "8:_03D4892802423210B220FD24F87B109F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_DCBC254CD02449DA8B1D7211F90B396C"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_EB1EC934B893425A85A6B17A21FAA8D8"
-        "OwnerKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0720D0C54A7B3AAB8B1AB26DAEE0CD60"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -101,12 +101,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_1ECE85A7A132495E94FB055047A24BF6"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3B3A52FAB4EDEEEF63E38880AF137866"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -137,6 +131,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_B82F13F170F5831CEE6602BC237723BE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3B3A52FAB4EDEEEF63E38880AF137866"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -234,14 +234,14 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_03D4892802423210B220FD24F87B109F"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0720D0C54A7B3AAB8B1AB26DAEE0CD60"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:PseudoLocalizer, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_03D4892802423210B220FD24F87B109F"
+                    "_0720D0C54A7B3AAB8B1AB26DAEE0CD60"
                     {
                     "Name" = "8:PseudoLocalizer.dll"
                     "Attributes" = "3:512"
@@ -327,12 +327,72 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_853C8BD0223248CA872FFE07B2EC3E38"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_516F71D4BFAB40658F4733FED2B7DA79"
             {
-            "SourcePath" = "8:..\\LangUpdater\\bin\\Release\\docs\\license.htm"
-            "TargetName" = "8:license.htm"
+            "SourcePath" = "8:..\\LICENSE"
+            "TargetName" = "8:LICENSE.txt"
             "Tag" = "8:"
             "Folder" = "8:_DCE111E52F2A4B84B54984ED1C39FA5E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9B76E34684B246138BD698E07A4A7594"
+            {
+            "SourcePath" = "8:..\\LFE_User_Guide.pdf"
+            "TargetName" = "8:LFE_User_Guide.pdf"
+            "Tag" = "8:"
+            "Folder" = "8:_DCE111E52F2A4B84B54984ED1C39FA5E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A36EDDEDBCAD4BA0BB1F37D061FBD632"
+            {
+            "SourcePath" = "8:notices.htm"
+            "TargetName" = "8:notices.htm"
+            "Tag" = "8:"
+            "Folder" = "8:_DCE111E52F2A4B84B54984ED1C39FA5E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B1D3BE9474054BF690B7ECF7209D1C23"
+            {
+            "SourcePath" = "8:lfe.ico"
+            "TargetName" = "8:lfe.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_C75DEA4A56E344D39639024B16C1E2CC"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -378,26 +438,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CDB2B7DDB02E45C1929A6BDDBCBEC3E7"
-            {
-            "SourcePath" = "8:lfe.ico"
-            "TargetName" = "8:lfe.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_3345A18E14744BAC8D5BB1DD5754666B"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D8464F2BA3E9DDB925D9A8D4A4624D98"
             {
             "AssemblyRegister" = "3:1"
@@ -427,46 +467,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DCBC254CD02449DA8B1D7211F90B396C"
-            {
-            "SourcePath" = "8:..\\LangUpdater\\bin\\Release\\docs\\notices.htm"
-            "TargetName" = "8:notices.htm"
-            "Tag" = "8:"
-            "Folder" = "8:_DCE111E52F2A4B84B54984ED1C39FA5E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EB1EC934B893425A85A6B17A21FAA8D8"
-            {
-            "SourcePath" = "8:..\\LangUpdater\\bin\\Release\\lfe.ico"
-            "TargetName" = "8:lfe.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_C75DEA4A56E344D39639024B16C1E2CC"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FC74E9D904BE590EF5A1C6D2502E1E83"
@@ -616,7 +616,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:https://SearchCloudOne.com"
-        "ARPPRODUCTICON" = "8:_EB1EC934B893425A85A6B17A21FAA8D8"
+        "ARPPRODUCTICON" = "8:_B1D3BE9474054BF690B7ECF7209D1C23"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -730,7 +730,7 @@
             "Target" = "8:_1ECE85A7A132495E94FB055047A24BF6"
             "Folder" = "8:_C12E827833F242D8B847810BEE81F6FC"
             "WorkingFolder" = "8:_C75DEA4A56E344D39639024B16C1E2CC"
-            "Icon" = "8:_EB1EC934B893425A85A6B17A21FAA8D8"
+            "Icon" = "8:_B1D3BE9474054BF690B7ECF7209D1C23"
             "Feature" = "8:"
             }
         }
@@ -1134,7 +1134,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_1ECE85A7A132495E94FB055047A24BF6"
             {
-            "SourcePath" = "8:..\\LangUpdater\\obj\\Release\\Language-File-Editor.exe"
+            "SourcePath" = "8:..\\LangUpdater\\obj\\Debug\\Language-File-Editor.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_C75DEA4A56E344D39639024B16C1E2CC"

@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Deployment.Application;
+using System.IO;
+using System.Diagnostics;
 
 namespace LangUpdater
 {
@@ -25,18 +27,23 @@ namespace LangUpdater
             {
                 //had to edit .csprj Project file to Deterministic false, to use wildcard in Assembly Version.
                 var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString(4);
-                richTextBox1.SelectAll();
-            richTextBox1.SelectionAlignment = HorizontalAlignment.Center; 
-            richTextBox1.Font = new Font("Courier New",14,FontStyle.Bold);
-            richTextBox1.Text = "Language File Editor\r\n" +
-                 "for eSearch .lang files\r\n\r\n" + "Version: " + version +  "\r\n" +
-                 "See Online Help\r\nfor License & Support.\r\n\r\n" +
-                 "© 2024 ElectronArt Design Ltd.";
+                labelVersion.Text = $"Version: {version}";
 
             }
             
          
         }
 
+        private void buttonLicenseAndNotices_Click(object sender, EventArgs e)
+        {
+            string dir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "docs");
+            if (Directory.Exists(dir))
+            {
+                Process.Start("explorer.exe", dir);
+            } else
+            {
+                MessageBox.Show("/docs folder is missing", "Error");
+            }
+        }
     }
 }

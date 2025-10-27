@@ -410,7 +410,14 @@ namespace LangUpdater
 
         private void onlineUserGuideToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://searchcloudone.com/lfe-user-guide/LFE_User_Guide");
+            string file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "docs", "LFE_User_Guide.pdf");
+            if (File.Exists(file))
+            {
+                System.Diagnostics.Process.Start(file);
+            } else
+            {
+                MessageBox.Show("File not found", "Could not open user guide");
+            }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

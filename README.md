@@ -1,3 +1,4 @@
+# Language File Editor (LFE)
 (LanguageUpdater was renamed to Language_File_Editor and made open source in October 2025.)
 
 Language File Editor (LFE) is for editing .lang files. These are used for localization of our open source esearch-project as well as for other applications produced by ElectronArt Design Ltd such as the Database Indexer and 365 Indexer add-ons for dtSearch Desktop. Each product has its own master template.lang file in the original language (usually English).

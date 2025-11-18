@@ -1,7 +1,7 @@
 # Language File Editor (LFE)
 (LanguageUpdater was renamed to Language_File_Editor and made open source in October 2025.)
 
-Language File Editor (LFE) is for editing .lang files. These are used for localization of our open source esearch-project as well as for other applications produced by ElectronArt Design Ltd such as the Database Indexer and 365 Indexer add-ons for dtSearch Desktop. Each product has its own master template.lang file in the original language (usually English).
+Language File Editor (LFE) is for editing .lang files. These are used for localization of our open source TARILIO (previously named esearch-project) as well as for other applications produced by ElectronArt Design Ltd such as the Database Indexer and 365 Indexer add-ons for dtSearch Desktop. Each product has its own master template.lang file in the original language (usually English).
 
 A .lang file is a plain text file in UTF-8 encoding used for localization purposes in various applications, most famously in Skype and Minecraft. It maps key-value string pairs to provide translations or language-specific text for user interfaces or game menus.
 

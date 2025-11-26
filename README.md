@@ -11,5 +11,5 @@ Language File Editor provides a faster and more foolproof method to edit .lang f
 
 ## BUILDS
 Download Free Zipped Setup files here:
-[https://dtsearch.co.uk/news/product/language-file-editor/](https://dtsearch.co.uk/news/product/language-file-editor/)
+[https://tarilio.com/product/language-file-editor/](https://tarilio.com/product/language-file-editor/))
 
